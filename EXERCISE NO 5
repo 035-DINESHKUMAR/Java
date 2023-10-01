@@ -1,0 +1,231 @@
+//Program 1
+package Program1;  
+ import java.util.Scanner; 
+  
+ import Program1.Year1.Year_I_Marks; 
+ import Program1.Year2.Year_II_Marks; 
+ public class Student { 
+     String name; 
+     int rollno; 
+     Student(String name,int rollno){ 
+         this.name = name; 
+         this.rollno = rollno; 
+     } 
+         public static void main(String[] args) { 
+             String name; 
+             int rollno,sub1,sub2,sub3,sub4; 
+             Scanner scan =  new Scanner(System.in); 
+             System.out.print("Enter the number of students : "); 
+             int n = scan.nextInt();     
+             Student[] student = new Student[n]; 
+             Year_I_Marks[] y1 = new Year_I_Marks[n]; 
+             Year_II_Marks[] y2 = new Year_II_Marks[n]; 
+             for (int i = 0; i < n; i++) { 
+                 System.out.print("\nEnter the Roll-No : "); 
+                 rollno = scan.nextInt(); 
+                 System.out.print("Enter the name : "); 
+                 name= scan.next(); 
+                 System.out.print("Enter Year I marks : "); 
+                 sub1 = scan.nextInt(); 
+                 sub2 = scan.nextInt(); 
+                 y1[i] = new Year_I_Marks(sub1,sub2); 
+                 System.out.print("Enter Year II marks : "); 
+                 sub3 = scan.nextInt(); 
+                 sub4 = scan.nextInt(); 
+                 y2[i] = new Year_II_Marks(sub3,sub4); 
+                 student[i] = new Student(name,rollno); 
+             } 
+  
+             for (int i = 0; i < n; i++) { 
+                 System.out.println("\nName : " 
+                                     + student[i].name  
+                                     + "\nRoll : " 
+                                     + student[i].rollno 
+                                   ); 
+                 System.out.println("Year I Marks  : "  
+                                     + y1[i].sub1Marks  
+                                     + ((y1[i].sub1Marks > 50) ? "-Pass" : "-Fail")  
+                                     + "  " + y1[i].sub2Marks  
+                                     + ((y1[i].sub2Marks > 50) ? "-Pass" : "-Fail") 
+                                   ); 
+                 System.out.println("Year II Marks : "  
+                                     + y2[i].sub3Marks  
+                                     + ((y2[i].sub3Marks > 50) ? "-Pass" : "-Fail")  
+                                     + "  " + y1[i].sub2Marks  
+                                     + ((y2[i].sub4Marks > 50) ? "-Pass" : "-Fail") 
+                                   ); 
+             } 
+         } 
+  
+  
+ }
+package Program1.Year1; 
+ public class Year_I_Marks { 
+         public int sub1Marks; 
+         public int sub2Marks; 
+     public Year_I_Marks(int sub1,int sub2){ 
+         this.sub1Marks = sub1; 
+         this.sub2Marks = sub2; 
+     } 
+ }
+package Program1.Year2; 
+ public class Year_II_Marks { 
+     public int sub3Marks; 
+     public int sub4Marks; 
+  
+     public Year_II_Marks(int sub3,int sub4){ 
+         this.sub3Marks = sub3; 
+         this.sub4Marks = sub4; 
+     } 
+ }
+//Program 2
+package Program2.JavaApplication; 
+  
+ import java.util.Scanner; 
+  
+ import Program2.pack1.*; 
+ import Program2.pack2.*; 
+ import Program2.pack3.*; 
+  
+ public class JavaAppplication { 
+  
+     public static void main(String[] args) { 
+         Scanner scan =  new Scanner(System.in); 
+         int choice,num1,num2; 
+         String str1,str2; 
+  
+         MathOperation Mat = new MathOperation(); 
+         StringOperation Str = new StringOperation(); 
+         calculator Calc = new calculator(); 
+  
+         System.out.println("1.Addition \n2.Subraction \n3.Multiply \n4.Divide \n5.String concatenate \n6.String reverse \n7.Exit"); 
+         do{ 
+         System.out.print("\nEnter the choice : "); 
+         choice = scan.nextInt();  
+  
+             switch(choice){ 
+                 case 1: 
+                     System.out.print("Enter Number 1 : "); 
+                     num1 = scan.nextInt(); 
+                     System.out.print("Enter Number 2 : "); 
+                     num2 = scan.nextInt(); 
+                     System.out.println("Sum is : " + Mat.add(num1, num2)); 
+                     break; 
+                 case 2: 
+                     System.out.print("Enter Number 1 : "); 
+                     num1 = scan.nextInt(); 
+                     System.out.print("Enter Number 2 : "); 
+                     num2 = scan.nextInt(); 
+                     System.out.println("Difference is : " + Mat.subtact(num2, num1)); 
+                     break; 
+                 case 3: 
+                     System.out.print("Enter Number 1 : "); 
+                     num1 = scan.nextInt(); 
+                     System.out.print("Enter Number 2 : "); 
+                     num2 = scan.nextInt(); 
+                     System.out.println("Multiplication is is : " + Calc.multiply(num1, num2)); 
+                     break; 
+                 case 4: 
+                     System.out.print("Enter Number 1 : "); 
+                     num1 = scan.nextInt(); 
+                     System.out.print("Enter Number 2 : "); 
+                     num2 = scan.nextInt(); 
+                     System.out.println("Divide is : " + Calc.divide((double)num1, (double)num2)); 
+                     break; 
+                 case 5: 
+                     System.out.print("\nEnter String 1 : "); 
+                     str1 = scan.next(); 
+                     System.out.print("Enter String 2 : "); 
+                     str2 = scan.next(); 
+                     System.out.print("Concatenated Sting is : " + Str.concatenate(str1, str2)); 
+                     break; 
+                 case 6: 
+                     System.out.print("\nEnter String : "); 
+                     str1 = scan.next(); 
+                     System.out.print("Reversed String is : " + Str.reverse(str1)); 
+                     break; 
+                 case 7: 
+                     System.out.print("Exiting Program\n"); 
+                     break; 
+                 default: 
+                     System.out.print("Invalid Choice\n"); 
+                     break; 
+             } 
+        }while(choice!=7); 
+     } 
+ }
+package Program2.pack1; 
+ public class MathOperation { 
+     public int add(int a,int b){ 
+         return a+b; 
+     } 
+     public int subtact(int a,int b){ 
+         return a-b; 
+     } 
+ }
+package Program2.pack2; 
+  
+ public class StringOperation { 
+     String CatStr,RevStr=""; 
+     public String concatenate(String a,String b){ 
+         CatStr = a+" "+b; 
+         return CatStr; 
+     } 
+     public String reverse(String str){ 
+         char ch[] = str.toCharArray(); 
+         int strlen = str.length(); 
+         for(int i=strlen-1;i>=0;i--){ 
+             RevStr=RevStr+ch[i]; 
+         } 
+         return RevStr; 
+     } 
+ }
+package Program2.pack3; 
+ class UDException extends Exception{ 
+     public UDException(String message){ 
+         super(message); 
+     } 
+ } 
+ public class calculator { 
+     double div; 
+     public int multiply(int a,int b){ 
+         return a*b; 
+     } 
+     public double divide(double a,double b){ 
+         try{ 
+             if(b==0){ 
+             throw new Exception("Do not enter 0 as denominator.");     
+             } 
+             else{ 
+             div=a/b; 
+             } 
+         } 
+         catch(Exception e){ 
+             System.out.println(e.getMessage()); 
+         } 
+         return div; 
+     } 
+ }
+//Program 3
+package Program3.package1; 
+  
+ public class ParentClass { 
+     protected String protectedProperty = "This is a protected property"; 
+     String defaultProperty = "This is a default property"; 
+ }
+package Program3.package2; 
+ import Program3.package1.ParentClass; 
+  
+ public class ChildClass extends ParentClass { 
+     public void accessProperties() { 
+         System.out.println(protectedProperty); 
+         // System.out.println(defaultProperty); // This will cause a compile error 
+     } 
+ }
+package Program3.package2; 
+ public class Protected { 
+     public static void main(String[] args) { 
+         ChildClass child = new ChildClass(); 
+         child.accessProperties(); 
+     } 
+ }
