@@ -1,3 +1,4 @@
+/*Thread run and start method
 package com.mycompany.threaddemo;
 public class Threaddemo {
 
@@ -48,3 +49,4 @@ class B implements Runnable
         }
     }
 }
+*/
