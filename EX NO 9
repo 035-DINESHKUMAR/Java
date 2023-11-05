@@ -1,0 +1,71 @@
+1.
+
+import java.io.*;
+public class ConvertToLowerCase {
+    public static void main(String[] args) {
+        try {
+            FileReader inputFile = new FileReader("input.txt");
+            BufferedReader bufferedReader = new BufferedReader(inputFile);
+            FileWriter outputFile = new FileWriter("output.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(outputFile);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] words = line.split(" ");
+                for (String word : words) {
+ bufferedWriter.write(word.toLowerCase() + " ");
+                }
+                bufferedWriter.newLine();
+            }
+            bufferedReader.close();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+2.
+
+import java.io.File;
+public class FileInfo {
+    public static void main(String[] args) {
+        String fileName = "example.txt";
+        File file = new File(fileName);
+        System.out.println("File exists: " + file.exists());
+        System.out.println("File is readable: " + file.canRead());
+        System.out.println("File is writable: " + file.canWrite());
+        System.out.println("File type: " + (file.isFile() ? "Regular File" : "Directory"));
+        System.out.println("File length (in bytes): " + file.length());
+    }
+}
+
+
+3. 
+
+import java.io.*;
+public class CharacterByteStreams {
+    public static void main(String[] args) {
+        try {
+            FileReader inputFile = new FileReader("input.txt");
+            FileWriter outputFile = new FileWriter("output.txt");
+            int character;
+            while ((character = inputFile.read()) != -1) {
+                outputFile.write(character);
+            }
+            inputFile.close();
+            outputFile.close();
+            FileInputStream inputStream = new FileInputStream("binaryInput.dat");
+            FileOutputStream outputStream = new FileOutputStream("binaryOutput.dat");
+
+            int byteData;
+            while ((byteData = inputStream.read()) != -1) {
+                outputStream.write(byteData);
+            }
+
+            inputStream.close();
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
