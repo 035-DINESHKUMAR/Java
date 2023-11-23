@@ -1,0 +1,76 @@
+package com.mycompany.oopssp;
+import java.util.*;
+public class OOPSSP
+{
+    public static void main(String[] args) {
+        Scanner Scan = new Scanner(System.in);
+        int m1,m2,m3,m4,m5,n;
+        System.out.println("Enter the number of Students : ");
+        n = Scan.nextInt();
+        stu[] st = new stu[n];
+        for(int i=0;i<n;i++)
+        {
+            System.out.println("Enter the marks for five Subject : ");
+            m1 = Scan.nextInt();
+            m2 = Scan.nextInt();
+            m3 = Scan.nextInt();
+            m4 = Scan.nextInt();
+            m5 = Scan.nextInt();
+            st[i] = new stu(m1,m2,m3,m4,m5);
+            st[i].showstatus();
+            st[i].ShowGradePointsMarks();
+        }
+        Scan.close();
+    }
+}
+class stu
+{
+    int m1,m2,m3,m4,m5,Avg,sum,Gradepoints;
+    stu(int m1,int m2,int m3,int m4,int m5)
+    {
+           this.m1 = m1;
+           this.m2 = m2;
+           this.m3 = m3;
+           this.m4 = m4;
+           this.m5 = m5;
+    }
+    void showstatus()
+    {
+        sum = m1+m2+m3+m4+m5;
+        Avg = sum / 5;
+        if((Avg>=91) && (Avg<=100))
+        {
+            System.out.println("Outstanding Performance!");
+            Gradepoints+= 10;
+        }
+        else if((Avg>=81) && (Avg<=90))
+        {
+            System.out.println("Excellent Performance!");
+            Gradepoints+= 9;
+        }
+        else if((Avg>=71) && (Avg<=80))
+        {
+            System.out.println("Excellent Performance!");
+            Gradepoints+= 8;
+        }
+        else if((Avg>=61) && (Avg<=70))
+        {
+            System.out.println("Excellent Performance!");
+            Gradepoints+= 7;
+        }
+        else if((Avg>=50) && (Avg<=60))
+        { 
+            System.out.println("Excellent Performance!");
+            Gradepoints+= 6;
+        }
+        else
+        {
+            System.out.println("Perform well in next Semester");
+            Gradepoints+= 0;
+        }
+    }
+    void ShowGradePointsMarks()
+    {
+        System.out.println("The marks scored "+sum+" "+"and"+" "+"the obtained Gradepoints"+" "+Gradepoints);
+    }
+}
