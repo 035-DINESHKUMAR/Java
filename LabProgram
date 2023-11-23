@@ -149,3 +149,60 @@ class complex
         System.out.println("The Resultant is : "+(RealNo/a)+"+"+(ImaginaryNo/b)+"i");
     }
 }
+3.import java.util.*;
+import java.io.*;
+public class PhoneNumber 
+{
+    public static void main(String[] args) throws IOException {
+        Scanner Scan = new Scanner(System.in);
+        FileOutputStream fout = new FileOutputStream("PhoneNumberFormat.java");
+        String PhoneNumber;
+        System.out.println("Enter the PhoneNumber : ");
+        PhoneNumber = Scan.next();
+        Result res = new Result(PhoneNumber);
+        try
+        {
+            if((PhoneNumber.length())<10 || (PhoneNumber.length())>10)
+            {
+                throw new InvalidNumbersException("Invalid length of PhoneNumber!");
+            }
+            else
+            {
+                System.out.println("The PhoneNumber Format is : "+res.result());
+            }
+        }catch(InvalidNumbersException in)
+        {
+            System.out.println(in.getMessage());
+        }
+        String Message = "PhoneFormat : ";
+        byte[] b1 = Message.getBytes();
+        byte[] b = PhoneNumber.getBytes();
+        fout.write(b1);
+        fout.write(b);
+        fout.close();
+    }    
+}
+class InvalidNumbersException extends Exception
+{
+    public InvalidNumbersException(String msg)
+    {
+        super(msg);
+    }
+}
+class Result
+{
+    String PhoneNumber;
+    Result(String PhoneNumber)
+    {
+        this.PhoneNumber = PhoneNumber;
+    }
+    String result()
+    {
+        String Firstpart = "("+PhoneNumber.substring(0, 3)+")"+" ";
+        String Middlepart = PhoneNumber.substring(3, 6)+"-";
+        String Lastpart = PhoneNumber.substring(6);
+        String Result = Firstpart+Middlepart+Lastpart;
+        return Result;
+    }
+    
+}
