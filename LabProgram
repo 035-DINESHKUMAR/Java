@@ -206,3 +206,24 @@ class Result
     }
     
 }
+4.import java.util.*;
+public class Address
+{
+    public static void main(String[] args) {
+        Scanner Scan = new Scanner(System.in);
+        String Address,Name;
+        System.out.println("Enter the Name : ");
+        Name = Scan.nextLine();
+        System.out.println("Enter the Address : ");
+        Address = Scan.nextLine();
+        String Result = "";
+        String[] s = Name.split(" ");
+        String[] s1 = Address.split(" ");
+        for(String news : s)
+        {
+            Result+= news.substring(0,1);
+        }
+        Result+= s1[0];
+        System.out.println("The Newly Constructed ID is : "+Result);
+    }   
+}
