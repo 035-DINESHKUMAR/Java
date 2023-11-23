@@ -420,3 +420,53 @@ public class Form extends JFrame implements ActionListener
         new Form();
     }    
 }
+18.import java.util.*;
+public class generics
+{
+    public static void main(String[] args) {
+        Scanner Scan = new Scanner(System.in);
+        Integer[] IntegerArray = {2,3,4,5,6,7};
+        OddInt<Integer> od = new OddInt<Integer>(IntegerArray);
+        od.display();
+    }   
+}
+class OddInt<N extends Number>
+{
+    N[] Array;
+    int count,n=2;
+    OddInt(N[] Array)
+    {
+        this.Array = Array;
+    }
+    <N extends Number> void display()
+    {
+        for(int i=0;i<Array.length;i++)
+        {
+            int a = (int)Array[i];
+            if((a%n)!=0)
+                count+= 1;
+        }
+        System.out.println("The odd Integers in the Array is : "+count);
+    }
+}import java.util.Arrays;
+public class Swap 
+{
+    public static void main(String[] args) {
+        Integer[] IntArray = {3,5,6,7,8,9,10,11};
+        swap1 SwapInt = new swap1();
+        SwapInt.SwapElement(IntArray,3, 8);
+        Character[] CharArray = {'a','b','c','d','e','f','g','h'};
+        swap1 SwapChar = new swap1();
+        SwapChar.SwapElement(CharArray,3, 8);
+    }    
+}
+class swap1
+{
+    <T> void SwapElement(T[] Array,T index1,T index2)
+    {
+        T[] Array1;
+        Array1 = Arrays.copyOfRange(Array, (int)index1, (int)index2);
+        Arrays.sort(Array1);
+        System.out.println("The Maximum element is within the range is : "+Array1[(Array1.length)-1]);
+    }
+}
