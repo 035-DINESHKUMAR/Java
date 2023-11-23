@@ -1,4 +1,4 @@
-package com.mycompany.oopssp;
+1.package com.mycompany.oopssp;
 import java.util.*;
 public class OOPSSP
 {
@@ -72,5 +72,80 @@ class stu
     void ShowGradePointsMarks()
     {
         System.out.println("The marks scored "+sum+" "+"and"+" "+"the obtained Gradepoints"+" "+Gradepoints);
+    }
+}
+
+2.import java.util.*;
+public class ComplexNumbers 
+{
+    public static void main(String[] args) {
+        Scanner Scan = new Scanner(System.in);
+        int a,b;
+        System.out.println("Enter the value of RealNumber[a] : ");
+        a = Scan.nextInt();
+        System.out.println("Enter the value of ImaginaryNumber[b] : ");
+        b = Scan.nextInt();
+        complex com = new complex(a,b);
+        System.out.println("1-Sum 2-Sub 3-Mul 4-Div");
+        System.out.println("Enter the choice : ");
+        int choice = Scan.nextInt();
+        switch(choice)
+        {
+            case 1->
+            {
+                com.add();
+                break;
+            }
+            case 2->
+            {
+                com.sub();
+                break;
+            }
+            case 3->
+            {
+                com.mul();
+                break;
+            }
+            case 4->
+            {
+                com.div();
+                break;
+            }
+            default->
+            {
+               System.out.println("Invalid choice!");
+               break;
+            }
+        }
+    }   
+}
+class complex
+{
+    Scanner Scan = new Scanner(System.in);
+    int RealNo,ImaginaryNo,a,b,Result;
+    complex(int RealNo,int ImaginaryNo)
+    {
+        this.RealNo = RealNo;
+        this.ImaginaryNo = ImaginaryNo;
+        System.out.println("Enter the value of Second RealNumber : ");
+        a = Scan.nextInt();
+        System.out.println("Enter the value of Second ImaginaryNumber : ");
+        b = Scan.nextInt();
+    }
+    void add()
+    {
+        System.out.println("The Resultant is : "+(RealNo+a)+"+"+(ImaginaryNo+b)+"i");
+    }
+    void sub()
+    {
+        System.out.println("The Resultant is : "+(RealNo-a)+"+"+(ImaginaryNo-b)+"i"); 
+    }
+    void mul()
+    {
+        System.out.println("The Resultant is : "+(RealNo*a)+"+"+(ImaginaryNo)+"i");
+    }
+    void div()
+    {
+        System.out.println("The Resultant is : "+(RealNo/a)+"+"+(ImaginaryNo/b)+"i");
     }
 }
