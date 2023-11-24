@@ -160,6 +160,7 @@ public class PhoneNumber
         System.out.println("Enter the PhoneNumber : ");
         PhoneNumber = Scan.next();
         Result res = new Result(PhoneNumber);
+        String FinalFormat = res.result();
         try
         {
             if((PhoneNumber.length())<10 || (PhoneNumber.length())>10)
@@ -168,7 +169,7 @@ public class PhoneNumber
             }
             else
             {
-                System.out.println("The PhoneNumber Format is : "+res.result());
+                System.out.println("The PhoneNumber Format is : "+FinalFormat);
             }
         }catch(InvalidNumbersException in)
         {
@@ -176,7 +177,7 @@ public class PhoneNumber
         }
         String Message = "PhoneFormat : ";
         byte[] b1 = Message.getBytes();
-        byte[] b = PhoneNumber.getBytes();
+        byte[] b = FinalFormat.getBytes();
         fout.write(b1);
         fout.write(b);
         fout.close();
